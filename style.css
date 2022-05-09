@@ -8,7 +8,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-family: "Raleway", sans-serif;
+    font-family: 'NTR', sans-serif;
     font-size: 20px;
 }
 
@@ -53,7 +53,6 @@ nav {
     align-items: center;
     justify-content: flex-end;
     font-size: 0.5rem;
-    font-family: 'NTR', sans-serif;
     letter-spacing: 4px;
     font-weight: 400;
 }
@@ -62,4 +61,49 @@ nav a {
     position: relative;
     right: 20px;
     color: white;
+}
+
+.search-bar {
+    font-size: 0.75rem;
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 45px;
+    letter-spacing: 1px;
+}
+
+.search-bar .container {
+    height: 100%;
+    width: 75%;
+    border-bottom: 2px solid #d6d6d6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.search-bar .container .input-container {
+    height: 70%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar .container .input-container input {
+    font-size: 1.5rem;
+    border: none;
+    width: 70%;
+}
+
+.search-bar .container .input-container button {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #adadad;
+    cursor: pointer;
 }
