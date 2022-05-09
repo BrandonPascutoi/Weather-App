@@ -71,7 +71,7 @@ nav a {
     align-items: center;
     justify-content: center;
     position: relative;
-    top: 45px;
+    top: 25px;
     letter-spacing: 1px;
 }
 
@@ -106,4 +106,47 @@ nav a {
     font-size: 1rem;
     color: #adadad;
     cursor: pointer;
+}
+
+.weather-information {
+    height: 20rem;
+    width: 100%;
+    position: relative;
+    top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-information .detail-container {
+    height: 100%;
+    width: 75%;
+    background: white;
+    border-radius: 1rem;
+    background: #f6f5fa;
+    box-shadow: 0 10px 10px 0 rgb(0 0 0 / 16%);
+}
+
+footer {
+    position: relative;
+    top: 65px;
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+}
+
+footer a {
+    letter-spacing: 2px;
+    position: relative;
+    left: 7.5%;
+    color: #4b464a;
+}
+
+footer div {
+    height: 1px;
+    width: 60%;
+    background: #c0b3bc;
 }
