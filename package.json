@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node-fetch": "^3.2.4"
+  },
+  "name": "weather-app",
+  "description": "A simple weather app.",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrandonPascutoi/Weather-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrandonPascutoi/Weather-App/issues"
+  },
+  "homepage": "https://github.com/BrandonPascutoi/Weather-App#readme"
+}
