@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=NTR&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap" rel="stylesheet">
     <title>Weather App</title>
 </head>
 <body>
-    <nav>
-        <a href="index.html"><h1>MY WEATHER</h1></a>
+    <nav class="nav">
+        <h1 class="reset">MY WEATHER</h1>
     </nav>
     <section class="search-bar">
         <div class="container">
@@ -25,11 +25,19 @@
     </section>
     <section class="weather-information">
         <div class="detail-container">
-
+            <img class="default-photo" src="images/default-photo.png">
+        </div>
+        <div class="error-container">
+            <div class="inner-container">
+                <h2>404</h2>
+                <p>Oops!</p>
+                <p>We can't find the city you are looking for.</p>
+                <p class="reset">Try Again</p>
+            </div>
         </div>
     </section>
     <footer>
-        <a href="index.html"><p>MY WEATHER</p></a>
+        <p class="reset">MY WEATHER</p>
         <div></div>
     </footer>
     <script src="script.js"></script>

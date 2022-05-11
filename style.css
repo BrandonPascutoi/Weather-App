@@ -12,11 +12,6 @@ html {
     font-size: 20px;
 }
 
-a {
-    text-decoration: none;
-    cursor: pointer;
-}
-
 button,
 button:hover {
     background: transparent;
@@ -57,7 +52,7 @@ nav {
     font-weight: 400;
 }
 
-nav a {
+nav h1{
     position: relative;
     right: 20px;
     color: white;
@@ -121,11 +116,60 @@ nav a {
 .weather-information .detail-container {
     height: 100%;
     width: 75%;
-    background: white;
     border-radius: 1rem;
     background: #f6f5fa;
     box-shadow: 0 10px 10px 0 rgb(0 0 0 / 16%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.weather-information .detail-container .default-photo {
+    height: 50%;
+}
+
+.weather-information .error-container {
+    height: 100%;
+    width: 75%;
+    border-radius: 1rem;
+    background: #f6f5fa;
+    box-shadow: 0 10px 10px 0 rgb(0 0 0 / 16%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0%;
+}
+
+.weather-information .error-container .inner-container {
+    height: 60%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.weather-information .error-container .inner-container h2 {
+    font-size: 4rem;
+    opacity: 20%;
+    line-height: 4rem;
+}
+
+.weather-information .error-container .inner-container p:nth-child(2) {
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+.weather-information .error-container .inner-container p:not(:nth-child(2)) {
+    line-height: 1rem;
+}
+
+.weather-information .error-container .inner-container .reset {
+    opacity: 40%;
+}
+
+
 
 footer {
     position: relative;
@@ -138,7 +182,7 @@ footer {
     font-size: 0.75rem;
 }
 
-footer a {
+footer p {
     letter-spacing: 2px;
     position: relative;
     left: 7.5%;
@@ -149,4 +193,8 @@ footer div {
     height: 1px;
     width: 60%;
     background: #c0b3bc;
+}
+
+.reset {
+    cursor: pointer;
 }
