@@ -11,22 +11,18 @@ for (let i = 0; i < resetPageButtons.length; i++) {
     navBar.style.background = '#c0b3bc';
     inputField.value = '';
     errorContainer.style.transition = 'all 0.25s linear';
-    errorContainer.style.opacity = '0%'
-    errorContainer.style.transition = 'all 0.25s linear';
-    errorContainer.style.opacity = '100%'
-    setTimeout(() => {
-      defaultContainer.style.display= 'flex';
-      errorContainer.style.display = 'none';
-    }, 0250);
+    errorContainer.style.opacity = '0%';
+    errorContainer.style.zIndex = '0';
+    defaultContainer.style.transition = 'all 0.25s linear';
+    defaultContainer.style.opacity = '100%';
+    defaultContainer.style.zIndex = '10';
   })
 }
 
 setButton.addEventListener('click', () => {
   defaultContainer.style.transition = 'all 0.25s linear';
-  defaultContainer.style.opacity = '0%'
-  setTimeout(() => {
-    defaultContainer.style.display = 'none';
-  }, 0250);
+  defaultContainer.style.opacity = '0%';
+  defaultContainer.style.zIndex = '0';
   let latitude = 0;
   let longitude = 0;
   fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${inputField.value}&limit=1&appid=7656a35e13a17983aeab7c7c4485a48d`)
@@ -46,10 +42,10 @@ setButton.addEventListener('click', () => {
         navBar.style.transition = 'all 0.5s linear';
         navBar.style.background = 'rgb(239, 154, 154)';
         setTimeout(() => {
-          errorContainer.style.display = 'flex';
-          errorContainer.style.transition = 'all 5s linear';
-          errorContainer.style.opacity = '100%'
-        }, 0500);
+          errorContainer.style.transition = 'all 0.25s linear';
+          errorContainer.style.opacity = '100%';
+          errorContainer.style.zIndex = '10';
+        }, 0250);
       })
       /*.then(fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=7656a35e13a17983aeab7c7c4485a48d`)
                 .then(response => response.json())
