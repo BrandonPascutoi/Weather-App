@@ -25,7 +25,7 @@ setButton.addEventListener('click', () => {
   defaultContainer.style.zIndex = '0';
   let latitude = 0;
   let longitude = 0;
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${inputField.value}&limit=1&appid=7656a35e13a17983aeab7c7c4485a48d`)
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${inputField.value}&limit=1&appid=7656a35e13a17983aeab7c7c4485a48d`)
     .then(response => {
       if (response.status >= 200 && response.status <= 299) {
         return response.json();
