@@ -125,11 +125,74 @@ nav h1{
     justify-content: center;
     position: absolute;
     opacity: 100%;
-    z-index: 10;
+    z-index: 0;
 }
 
 .weather-information .detail-container .default-photo {
     height: 50%;
+}
+
+.weather-information .success-container {
+    height: 100%;
+    width: 75%;
+    border-radius: 1rem;
+    background: #f6f5fa;
+    box-shadow: 0 10px 10px 0 rgb(0 0 0 / 16%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 100%;
+    position: absolute;
+    z-index: 10;
+}
+
+.weather-information .success-container .inner-container {
+    height: 85%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-information .success-container .inner-container .image-container {
+    display: flex;
+    width: 100%;
+    height: 35%;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-information .success-container .inner-container .image-container img {
+    height: 100%;
+}
+
+.weather-information .success-container .inner-container .weather-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    height: 65%;
+}
+
+.weather-information .success-container .inner-container .weather-details header {
+    font-size: 3.5rem;
+    line-height: 3.5rem;
+}
+
+.weather-information .success-container .inner-container .weather-details p:nth-child(2),
+.weather-information .success-container .inner-container .weather-details p:nth-child(3) {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+}
+
+.weather-information .success-container .inner-container .weather-details .smaller-line-height {
+    font-size: 1rem;
+    line-height: 1rem;
+    font-weight: 500;
 }
 
 .weather-information .error-container {
@@ -173,8 +236,6 @@ nav h1{
 .weather-information .error-container .inner-container .reset {
     opacity: 40%;
 }
-
-
 
 footer {
     position: relative;

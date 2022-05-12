@@ -35,7 +35,6 @@ setButton.addEventListener('click', () => {
     }).then((data) => {
         latitude = data[0].lat;
         longitude = data[0].lon;
-        console.log(latitude, longitude)
         navBar.style.transition = 'all 0.5s linear';
         navBar.style.background = 'rgb(252, 196, 24)';
       }).catch((error) => {
@@ -46,8 +45,10 @@ setButton.addEventListener('click', () => {
           errorContainer.style.opacity = '100%';
           errorContainer.style.zIndex = '10';
         }, 0250);
-      })
-      /*.then(fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=7656a35e13a17983aeab7c7c4485a48d`)
+      }).then(fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=7656a35e13a17983aeab7c7c4485a48d`)
                 .then(response => response.json())
-                .then(data => console.log(data)));*/
+                .then(data => {
+                  console.log(data.weather[0]);
+                  console.log(latitude, longitude)
+                }));
 });
