@@ -39,8 +39,8 @@ setButton.addEventListener('click', () => {
     }
   }).then(data => {
     let coordinates = {
-      lon: data[0].lat,
-      lat: data[0].lon
+      lon: data[0].lon,
+      lat: data[0].lat
     }
     return coordinates;
   }).catch((error) => {
@@ -52,7 +52,7 @@ setButton.addEventListener('click', () => {
       errorContainer.style.zIndex = '10';
     }, 0250);
   }).then(coordinates => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=7656a35e13a17983aeab7c7c4485a48d`).then(response => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=7656a35e13a17983aeab7c7c4485a48d&units=metric`).then(response => {
       if (response.status >= 200 && response.status <= 299) {
         return response.json();
       } else {
@@ -68,9 +68,11 @@ setButton.addEventListener('click', () => {
       weatherDetailsContainer.style.opacity = '100%';
       weatherDetailsContainer.style.zIndex = '10';
       console.log(data);
-      temperature.innerHTML = `${Math.floor(data.main.temp - 283.15)}°`;
-      feelsLiketemperature.innerHTML = `Feels like: ${Math.floor(data.main.feels_like - 283.15)}°`;
-      weather.innerHTML = `Weather: ${data.weather[0].main}`
+      temperature.innerHTML = `${Math.floor(data.main.temp)}°`;
+      feelsLiketemperature.innerHTML = `Feels like: ${Math.floor(data.main.feels_like)}°`;
+      weather.innerHTML = `Weather: ${data.weather[0].main}`;
+      humidity.innerHTML = `Humidity: ${data.main.humidity}%`;
+      windSpeed.innerHTML = `Wing Speed ${data.wind.speed}m/s`;
     }).catch((error) => {
       navBar.style.transition = 'all 0.5s linear';
       navBar.style.background = 'rgb(239, 154, 154)';
