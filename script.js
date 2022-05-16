@@ -12,6 +12,7 @@ const feelsLiketemperature = document.querySelector('.feels-like-temperature');
 const weather = document.querySelector('.weather');
 const humidity = document.querySelector('.humidity');
 const windSpeed = document.querySelector('.wind-speed');
+const weatherConditionsImage = document.querySelector('.weather-image');
 
 for (let i = 0; i < resetPageButtons.length; i++) {
   resetPageButtons[i].addEventListener('click', () => {
@@ -21,6 +22,9 @@ for (let i = 0; i < resetPageButtons.length; i++) {
     errorContainer.style.transition = 'all 0.25s linear';
     errorContainer.style.opacity = '0%';
     errorContainer.style.zIndex = '0';
+    weatherDetailsContainer.style.transition = 'all 0.25s linear';
+    weatherDetailsContainer.style.opacity = '0%';
+    weatherDetailsContainer.style.zIndex = '0';
     defaultContainer.style.transition = 'all 0.25s linear';
     defaultContainer.style.opacity = '100%';
     defaultContainer.style.zIndex = '10';
@@ -46,6 +50,9 @@ setButton.addEventListener('click', () => {
   }).catch((error) => {
     navBar.style.transition = 'all 0.5s linear';
     navBar.style.background = 'rgb(239, 154, 154)';
+    weatherDetailsContainer.style.transition = 'all 0.25s linear';
+    weatherDetailsContainer.style.opacity = '0%';
+    weatherDetailsContainer.style.zIndex = '0';
     setTimeout(() => {
       errorContainer.style.transition = 'all 0.25s linear';
       errorContainer.style.opacity = '100%';
@@ -67,7 +74,17 @@ setButton.addEventListener('click', () => {
       weatherDetailsContainer.style.transition = 'all 0.25s linear';
       weatherDetailsContainer.style.opacity = '100%';
       weatherDetailsContainer.style.zIndex = '10';
-      console.log(data);
+      if (data.weather[0].main == 'Clear') {
+        weatherConditionsImage.src = 'images/sunny-weather.png';
+      } else if (data.weather[0].main == 'Clouds') {
+        weatherConditionsImage.src = 'images/cloudy-weather.png';
+      } else if (data.weather[0].main == 'Mist') {
+        weatherConditionsImage.src = 'images/misty-weather.png';
+      } else if (data.weather[0].main == 'Rain') {
+        weatherConditionsImage.src = 'images/rainy-weather.png';
+      } else if (data.weather[0].main == 'Snow') {
+        weatherConditionsImage.src = 'images/snowy-weather.png';
+      }
       temperature.innerHTML = `${Math.floor(data.main.temp)}°`;
       feelsLiketemperature.innerHTML = `Feels like: ${Math.floor(data.main.feels_like)}°`;
       weather.innerHTML = `Weather: ${data.weather[0].main}`;
