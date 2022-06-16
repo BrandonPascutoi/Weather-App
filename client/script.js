@@ -31,7 +31,19 @@ for (let i = 0; i < resetPageButtons.length; i++) {
   })
 }
 
-setButton.addEventListener('click', () => {
+setButton.addEventListener('click', async () => {
+  await fetch(`https://lackadaisical-inconclusive-cyclone.glitch.me/weather/${inputField.value}`).then(async response => {
+    if (response.status >= 200 && response.status <= 299) {
+      return await response.json();
+    } else {
+      throw Error(response.statusText);
+    }
+  }).then(data => {
+    console.log(data);
+  })
+})
+
+/* setButton.addEventListener('click', () => {
   defaultContainer.style.transition = 'all 0.25s linear';
   defaultContainer.style.opacity = '0%';
   defaultContainer.style.zIndex = '0';
@@ -100,4 +112,4 @@ setButton.addEventListener('click', () => {
       }, 0250);
     })
   })
-})
+})*/
