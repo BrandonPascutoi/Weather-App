@@ -33,51 +33,32 @@ for (let i = 0; i < resetPageButtons.length; i++) {
 
 setButton.addEventListener('click', async () => {
   await fetch(`https://lackadaisical-inconclusive-cyclone.glitch.me/weather/${inputField.value}`).then(async response => {
-    if (response.status >= 200 && response.status <= 299) {
-      return await response.json();
+    let data = await response.json();
+    if (data.Error == 'invalid location') {
+      defaultContainer.style.transition = 'all 0.25s linear';
+      defaultContainer.style.opacity = '0%';
+      defaultContainer.style.zIndex = '0';
+      navBar.style.transition = 'all 0.5s linear';
+      navBar.style.background = 'rgb(239, 154, 154)';
+      weatherDetailsContainer.style.transition = 'all 0.25s linear';
+      weatherDetailsContainer.style.opacity = '0%';
+      weatherDetailsContainer.style.zIndex = '0';
+      setTimeout(() => {
+        errorContainer.style.transition = 'all 0.25s linear';
+        errorContainer.style.opacity = '100%';
+        errorContainer.style.zIndex = '10';
+      }, 0250);
+      navBar.style.transition = 'all 0.5s linear';
+      navBar.style.background = 'rgb(239, 154, 154)';
+      setTimeout(() => {
+        errorContainer.style.transition = 'all 0.25s linear';
+        errorContainer.style.opacity = '100%';
+        errorContainer.style.zIndex = '10';
+      }, 0250);
     } else {
-      throw Error(response.statusText);
-    }
-  }).then(data => {
-    console.log(data);
-  })
-})
-
-/* setButton.addEventListener('click', () => {
-  defaultContainer.style.transition = 'all 0.25s linear';
-  defaultContainer.style.opacity = '0%';
-  defaultContainer.style.zIndex = '0';
-  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${inputField.value}&limit=1&appid=`).then(response => {
-    if (response.status >= 200 && response.status <= 299) {
-      return response.json();
-    } else {
-      throw Error(response.statusText);
-    }
-  }).then(data => {
-    let coordinates = {
-      lon: data[0].lon,
-      lat: data[0].lat
-    }
-    return coordinates;
-  }).catch((error) => {
-    navBar.style.transition = 'all 0.5s linear';
-    navBar.style.background = 'rgb(239, 154, 154)';
-    weatherDetailsContainer.style.transition = 'all 0.25s linear';
-    weatherDetailsContainer.style.opacity = '0%';
-    weatherDetailsContainer.style.zIndex = '0';
-    setTimeout(() => {
-      errorContainer.style.transition = 'all 0.25s linear';
-      errorContainer.style.opacity = '100%';
-      errorContainer.style.zIndex = '10';
-    }, 0250);
-  }).then(coordinates => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=&units=metric`).then(response => {
-      if (response.status >= 200 && response.status <= 299) {
-        return response.json();
-      } else {
-        throw Error(response.statusText);
-      };
-    }).then(data => {
+      defaultContainer.style.transition = 'all 0.25s linear';
+      defaultContainer.style.opacity = '0%';
+      defaultContainer.style.zIndex = '0';
       navBar.style.transition = 'all 0.5s linear';
       navBar.style.background = 'rgb(252, 196, 24)';
       errorContainer.style.transition = 'all 0.25s linear';
@@ -102,14 +83,6 @@ setButton.addEventListener('click', async () => {
       weather.innerHTML = `Weather: ${data.weather[0].main}`;
       humidity.innerHTML = `Humidity: ${data.main.humidity}%`;
       windSpeed.innerHTML = `Wing Speed ${data.wind.speed}m/s`;
-    }).catch((error) => {
-      navBar.style.transition = 'all 0.5s linear';
-      navBar.style.background = 'rgb(239, 154, 154)';
-      setTimeout(() => {
-        errorContainer.style.transition = 'all 0.25s linear';
-        errorContainer.style.opacity = '100%';
-        errorContainer.style.zIndex = '10';
-      }, 0250);
-    })
-  })
-})*/
+    }
+  });
+});
