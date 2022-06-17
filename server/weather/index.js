@@ -2,29 +2,21 @@ const express = require("express");
 const router = express.Router();
 const fetch = require("node-fetch");
 
-const fetchWeatherCoords = async (location) => {
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${process.env.API_KEY}`;
-    try {
-      const data = await fetch(url);
-      const dataJson = await data.json();
-      return await {
-        lon: dataJson[0].lon,
-        lat: dataJson[0].lat
-      };
-    } catch {
-      console.log(1);
-    }
-}
-  
 const fetchWeatherData = async (location) => {
-    const coords = await fetchWeatherCoords(location)
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${process.env.API_KEY}&units=metric`;
     try {
-      const data = await fetch(url);
-      const dataJson = await data.json();
-      return dataJson
-    } catch {
-      console.log(2);
+      const coordsUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=${process.env.API_KEY}`;
+      const coordsData = await fetch(coordsUrl);
+      const coordsDataJson = await coordsData.json();
+      let coords = {
+        lon: coordsDataJson[0].lon,
+        lat: coordsDataJson[0].lat
+      };
+      const weatherDataUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${process.env.API_KEY}&units=metric`; 
+      const weatherData = await fetch(weatherDataUrl);
+      const weatherDataJson = await weatherData.json();
+      return weatherDataJson;
+    } catch (err) {
+      return {Error: 'invalid location'};
     }
 }
 
