@@ -264,3 +264,27 @@ footer div {
 .reset {
     cursor: pointer;
 }
+
+/* landscape mobile */
+@media only screen
+    and (orientation: landscape) {
+    .search-bar .container .input-container button {
+        justify-content: flex-end;
+    }
+
+    .weather-information .success-container .inner-container {
+        flex-direction: row;
+    }
+
+    .weather-information .success-container .inner-container .image-container {
+        height: 45%;
+    }
+
+    .weather-information .success-container .inner-container .weather-details {
+        align-items: center;
+    }
+
+    footer div {
+        width: 75%;
+    }
+}
