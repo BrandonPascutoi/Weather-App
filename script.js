@@ -34,7 +34,7 @@ for (let i = 0; i < resetPageButtons.length; i++) {
 setButton.addEventListener('click', async () => {
   await fetch(`https://lackadaisical-inconclusive-cyclone.glitch.me/weather/${inputField.value}`).then(async response => {
     let data = await response.json();
-    if (data.Error == 'invalid location') {
+    if (data.Error == 'invalid location' || inputField.value === '') {
       defaultContainer.style.transition = 'all 0.25s linear';
       defaultContainer.style.opacity = '0%';
       defaultContainer.style.zIndex = '0';
