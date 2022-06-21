@@ -353,3 +353,15 @@ footer div {
         line-height: 1.5rem;
     }
 }
+
+@media screen 
+    and (min-device-width: 1200px) { 
+
+    .search-bar .container .input-container {
+        justify-content: space-between;
+    }
+
+    .search-bar .container .input-container button {
+        width: 5%;
+    }
+}
