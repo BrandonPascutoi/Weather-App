@@ -288,3 +288,68 @@ footer div {
         width: 75%;
     }
 }
+
+@media only screen
+    and (min-device-width: 768px)
+    and (min-device-height : 1024px)
+    and (orientation: portrait) {
+
+    .weather-information {
+        height: 45rem;
+    }
+
+    .weather-information .success-container .inner-container .weather-details header {
+        font-size: 7.5rem;
+        line-height: 7.5rem;
+    }
+
+    .weather-information .success-container .inner-container .weather-details p:nth-child(2), .weather-information .success-container .inner-container .weather-details p:nth-child(3) {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+
+    .weather-information .success-container .inner-container .weather-details .smaller-line-height {
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    .weather-information .error-container .inner-container h2 {
+        font-size: 10rem;
+        line-height: 10rem;
+    }
+
+    .weather-information .error-container .inner-container p:nth-child(2) {
+        font-size: 5rem;
+        line-height: 5rem;
+    }
+
+    .weather-information .error-container .inner-container p:not(:nth-child(2)) {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+}
+
+@media only screen
+    and (min-device-width: 1024px)
+    and (min-device-height : 768px)
+    and (orientation: landscape) {
+
+    .weather-information {
+        height: 25rem;
+    }
+
+    .weather-information .success-container .inner-container .weather-details header {
+        font-size: 5.5rem;
+        line-height: 5.5rem;
+    }
+
+    .weather-information .success-container .inner-container .weather-details p:nth-child(2), .weather-information .success-container .inner-container .weather-details p:nth-child(3) {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+
+    .weather-information .success-container .inner-container .weather-details .smaller-line-height {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+}
