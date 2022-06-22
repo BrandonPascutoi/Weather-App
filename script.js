@@ -14,26 +14,31 @@ const humidity = document.querySelector('.humidity');
 const windSpeed = document.querySelector('.wind-speed');
 const weatherConditionsImage = document.querySelector('.weather-image');
 
+/* This makes it so every 'My Weather' button and the 'Try Again' button (when error occurs), resets page back to default state. */
 for (let i = 0; i < resetPageButtons.length; i++) {
   resetPageButtons[i].addEventListener('click', () => {
-    navBar.style.transition = 'all 0.5s linear';
-    navBar.style.background = '#c0b3bc';
-    inputField.value = '';
-    errorContainer.style.transition = 'all 0.25s linear';
-    errorContainer.style.opacity = '0%';
-    errorContainer.style.zIndex = '0';
-    weatherDetailsContainer.style.transition = 'all 0.25s linear';
-    weatherDetailsContainer.style.opacity = '0%';
-    weatherDetailsContainer.style.zIndex = '0';
-    defaultContainer.style.transition = 'all 0.25s linear';
-    defaultContainer.style.opacity = '100%';
-    defaultContainer.style.zIndex = '10';
+  navBar.style.transition = 'all 0.5s linear';
+  navBar.style.background = '#c0b3bc';
+  inputField.value = '';
+  errorContainer.style.transition = 'all 0.25s linear';
+  errorContainer.style.opacity = '0%';
+  errorContainer.style.zIndex = '0';
+  weatherDetailsContainer.style.transition = 'all 0.25s linear';
+  weatherDetailsContainer.style.opacity = '0%';
+  weatherDetailsContainer.style.zIndex = '0';
+  defaultContainer.style.transition = 'all 0.25s linear';
+  defaultContainer.style.opacity = '100%';
+  defaultContainer.style.zIndex = '10';
   })
 }
 
+/* This gives the 'Set' button functionality. If no value is entered or an invalid entry is submitted, an error page is  transitioned into. If successful the page transitions successfully and the data is returned to the user. */
+
+/* The data is retrieved by making a fetch request to a URL. The URL is the backend server which is hosted using a service. To understand how the data is received, see the JavaScript files in the 'server' folder. */
 setButton.addEventListener('click', async () => {
   await fetch(`https://lackadaisical-inconclusive-cyclone.glitch.me/weather/${inputField.value}`).then(async response => {
     let data = await response.json();
+    // If an invalid location is entered, the error screen is shown.
     if (data.Error == 'invalid location' || inputField.value === '') {
       defaultContainer.style.transition = 'all 0.25s linear';
       defaultContainer.style.opacity = '0%';
@@ -56,6 +61,7 @@ setButton.addEventListener('click', async () => {
         errorContainer.style.zIndex = '10';
       }, 0250);
     } else {
+      // If successful, show successful screen with data.
       defaultContainer.style.transition = 'all 0.25s linear';
       defaultContainer.style.opacity = '0%';
       defaultContainer.style.zIndex = '0';
