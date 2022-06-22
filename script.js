@@ -88,7 +88,7 @@ setButton.addEventListener('click', async () => {
       feelsLiketemperature.innerHTML = `Feels like: ${Math.floor(data.main.feels_like)}°`;
       weather.innerHTML = `Weather: ${data.weather[0].main}`;
       humidity.innerHTML = `Humidity: ${data.main.humidity}%`;
-      windSpeed.innerHTML = `Wing Speed ${data.wind.speed}m/s`;
+      windSpeed.innerHTML = `Wind Speed ${data.wind.speed}m/s`;
     }
   });
 });
