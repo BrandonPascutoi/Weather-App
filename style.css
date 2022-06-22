@@ -54,7 +54,7 @@ nav {
 
 nav h1{
     position: relative;
-    right: 20px;
+    right: 2%;
     color: white;
 }
 
@@ -355,13 +355,95 @@ footer div {
 }
 
 @media screen 
-    and (min-device-width: 1200px) { 
+    and (min-device-width: 1200px) {
+
+    nav {
+        height: 9vh;
+    }
+
+    nav h1 {
+        font-size: 2vh;
+        letter-spacing: 0.75vh;
+    }
+    
+    .search-bar {
+        height: 15vh;
+        font-size: 2.25vh;
+        top: 4vh;
+    }
+
+    .search-bar .container {
+        border-bottom: 0.4vh solid #d6d6d6;
+        letter-spacing: 0.2vh;
+    }
 
     .search-bar .container .input-container {
         justify-content: space-between;
     }
 
+    .search-bar .container .input-container input {
+        font-size: 4.5vh;
+    }
+
     .search-bar .container .input-container button {
+        font-size: 3vh;
         width: 5%;
+    }
+
+    .weather-information {
+        top: 10vh;
+        height: 70vh;
+    }
+
+    .weather-information .detail-container,
+    .weather-information .success-container,
+    .weather-information .error-container {
+        border-radius: 3.5vh;
+    }
+
+    .weather-information .success-container .inner-container .weather-details header {
+        font-size: 15vh;
+        line-height: 15vh;
+    }
+
+    .weather-information .success-container .inner-container .weather-details p:nth-child(2), 
+    .weather-information .success-container .inner-container .weather-details p:nth-child(3),
+    .weather-information .success-container .inner-container .weather-details .smaller-line-height {
+        font-size: 4vh;
+        line-height: 4vh;
+    }
+
+    .weather-information .error-container .inner-container h2 {
+        font-size: 15vh;
+        line-height: 15vh;
+    }
+
+    .weather-information .error-container .inner-container p:nth-child(2) {
+        font-size: 5vh;
+        line-height: 5vh;
+    }
+
+    .weather-information .error-container .inner-container p:not(:nth-child(2)) {
+        font-size: 4vh;
+        line-height: 4vh;
+    }
+
+    .weather-information .error-container .inner-container .reset {
+        width: 25%;
+    }
+
+    footer {
+        top: 10vh;
+        height: 5vh;
+        font-size: 2.5vh;
+    }
+
+    footer p {
+        letter-spacing: 0.2vh;
+    }
+
+    footer div {
+        width: 80%;
+        height: 0.1vh;
     }
 }
