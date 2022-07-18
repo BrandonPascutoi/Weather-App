@@ -36,10 +36,10 @@ for (let i = 0; i < resetPageButtons.length; i++) {
 
 /* The data is retrieved by making a fetch request to a URL. The URL is the backend server which is hosted using a service. To understand how the data is received, see the JavaScript files in the 'server' folder. */
 setButton.addEventListener('click', async () => {
-  await fetch(`https://lackadaisical-inconclusive-cyclone.glitch.me/weather/${inputField.value}`).then(async response => {
+  await fetch(`https://brandonpascutoi-weather-server.herokuapp.com/weather/${inputField.value}`).then(async response => {
     let data = await response.json();
     // If an invalid location is entered, the error screen is shown.
-    if (data.Error == 'invalid location' || inputField.value === '') {
+    if (data.Error || inputField.value === '') {
       defaultContainer.style.transition = 'all 0.25s linear';
       defaultContainer.style.opacity = '0%';
       defaultContainer.style.zIndex = '0';
