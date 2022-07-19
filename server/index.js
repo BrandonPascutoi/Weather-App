@@ -4,7 +4,7 @@ const express = require("express");
 const rateLimit = require("express-rate-limit")
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT
 
 const weather = require("./weather");
 
@@ -37,4 +37,4 @@ app.get("/", (req, res) => res.json({success: "Hello World"}));
 
 app.use("/weather", weather);
 
-app.listen(port, () => console.log(`App listening on port ${port}`));
+app.listen(port || 3000, () => console.log(`App listening on port ${port}`));

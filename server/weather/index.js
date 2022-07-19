@@ -11,7 +11,6 @@ const fetchWeatherData = async (location) => {
       const coordsData = await fetch(coordsUrl);
       // converts data to JSON.
       const coordsDataJson = await coordsData.json();
-      console.log(coordsDataJson);
       let coords = {
         lon: coordsDataJson[0].lon,
         lat: coordsDataJson[0].lat
