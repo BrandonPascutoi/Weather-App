@@ -11,12 +11,13 @@ const fetchWeatherData = async (location) => {
       const coordsData = await fetch(coordsUrl);
       // converts data to JSON.
       const coordsDataJson = await coordsData.json();
+      console.log(coordsDataJson);
       let coords = {
         lon: coordsDataJson[0].lon,
         lat: coordsDataJson[0].lat
       };
       // This converts the previously acquired co-ordinates and sends them to the API. The API then returns the weather data.
-      const weatherDataUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${process.env.API_KEY}&units=metric`; 
+      const weatherDataUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid=${process.env.API_KEY}&units=metric`; 
       const weatherData = await fetch(weatherDataUrl);
       // Converts data to JSON.
       const weatherDataJson = await weatherData.json();
@@ -24,7 +25,7 @@ const fetchWeatherData = async (location) => {
       return weatherDataJson;
     } catch (err) {
       // If an invalid location is entered, an error is returned.
-      return {Error: 'invalid location'};
+      return {Error: err.message};
     }
 }
 
