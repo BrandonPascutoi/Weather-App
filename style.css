@@ -166,6 +166,7 @@ nav h1{
 
 .weather-information .success-container .inner-container .image-container img {
     height: 100%;
+    opacity: 0%;
 }
 
 .weather-information .success-container .inner-container .weather-details {

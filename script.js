@@ -73,6 +73,8 @@ setButton.addEventListener('click', async () => {
       weatherDetailsContainer.style.transition = 'all 0.25s linear';
       weatherDetailsContainer.style.opacity = '100%';
       weatherDetailsContainer.style.zIndex = '10';
+      weatherConditionsImage.style.transition = 'all 0.25s linear';
+      weatherConditionsImage.style.opacity = '100%';
       if (data.weather[0].main == 'Clear') {
         weatherConditionsImage.src = 'images/sunny-weather.png';
       } else if (data.weather[0].main == 'Clouds') {
